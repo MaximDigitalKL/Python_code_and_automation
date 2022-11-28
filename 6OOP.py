@@ -179,7 +179,7 @@ def the_biggest_number(a, b, c):
 print(f'The biggest number is {the_biggest_number(5, 6, 7)}')
 
 '''15. Function that receives a number and returns the sum of all numbers from 0 to that number
-Eg: for nr 3 the sum will be 6 (0+1+2+3)'''
+Eg: for no 3 the sum will be 6 (0+1+2+3)'''
 def sum_of_all(number):
     sum = 0
     i = 0
