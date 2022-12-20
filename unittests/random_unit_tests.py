@@ -15,6 +15,9 @@ class Tests1(unittest.TestCase):
     ERROR = (By.XPATH, '//div[@class="row"]/div/div[@id="flash"]')
     ERROR_MESSAGE = (By.XPATH,'//div[@class="row"]/div/div[@id="flash"]')
     CLOSE_ERROR = (By.XPATH, '//div[@id="flash"]/a')
+    SUCCESS = (By.XPATH, '//h2')
+    USERNAME = (By.ID,"username")
+    PASSWORD = (By.ID, "password")
 
 
 
@@ -107,24 +110,18 @@ class Tests1(unittest.TestCase):
 
 #-Brute force password hacking (consider each word of element //h4 a password)
     def test_brute_force_hacking(self):
-        self.chrome.find_element(By.ID, 'username').send_keys('tomsmith')
-        h4_text = self.chrome.find_element(By.XPATH,'//h4').text
-        pass_list = h4_text.split()
-        found = False
-        for i in range(len(pass_list)):
-            self.chrome.find_element(By.ID, 'password').send_keys(pass_list[i])
+        pass_list = self.chrome.find_element(By.XPATH, '//h4').text.split()
+        P_found = False
+        for word in pass_list:
+            self.chrome.find_element(*self.USERNAME).send_keys('tomsmith')
+            self.chrome.find_element(*self.PASSWORD).send_keys(word)
             self.chrome.find_element(*self.BUTTON).click()
-            try:
-                self.chrome.find_element(*self.ERROR)
-                self.chrome.find_element(By.ID, 'username').send_keys('tomsmith')
-            except:
-                the_password = pass_list[i]
-                found = True
+            login_confirmation = self.chrome.find_element(*self.SUCCESS).text
+            if login_confirmation == "Secure Area":
+                P_found = True
+                print(f'The secret password is: {word}')
                 break
-        if found == True:
-            print(f'The secret password is: {the_password}')
-        else:
-            print('The password could not be hacked')
+        assert P_found == True, "The password could not be hacked"
 
 
 
