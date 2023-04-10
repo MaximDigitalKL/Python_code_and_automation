@@ -6,22 +6,22 @@ from selenium.webdriver.common.by import By
 
 chrome = webdriver.Chrome()
 chrome.maximize_window()
-time.sleep(2)
+
 chrome.get("https://formy-project.herokuapp.com/")
-time.sleep(2)
+
 chrome.find_element(By.LINK_TEXT, "Enabled and disabled elements").click()
-time.sleep(2)
+
 chrome.find_element(By.ID,"input").send_keys("calculator")
-time.sleep(2)
+
 chrome.find_element(By.CLASS_NAME,"navbar-brand").click()
-time.sleep(2)
+
 chrome.find_element(By.LINK_TEXT,"Checkbox").click()
-time.sleep(1)
+
 chrome.find_element(By.ID,"checkbox-2").click()
-time.sleep(2)
+
 chrome.back()
 chrome.find_element(By.LINK_TEXT,"Autocomplete").click()
-time.sleep(2)
+
 chrome.find_element(By.ID,"autocomplete").send_keys("Muntii Godeanu")
 address = chrome.find_elements(By.CLASS_NAME,"form-control")
 address[1].send_keys("nr 20")
@@ -29,62 +29,62 @@ address[3].send_keys("Chinteni")
 address[4].send_keys("Cluj")
 address[5].send_keys("407205")
 address[6].send_keys("Romania")
-time.sleep(3)
+
 chrome.back()
-time.sleep(1)
+
 chrome.get("https://the-internet.herokuapp.com/")
-time.sleep(2)
+
 chrome.find_element(By.LINK_TEXT,"Dynamic Controls").click()
 chrome.find_element(By.TAG_NAME,"input").click()
-time.sleep(3)
+
 chrome.find_element(By.LINK_TEXT,"Elemental Selenium").click()
-time.sleep(2)
+
 chwd = chrome.window_handles
 chrome.switch_to.window(chwd[1])
-time.sleep(2)
+
 chrome.find_element(By.NAME,"fields[programming_language]").click()
-time.sleep(1)
+
 optiuni = chrome.find_elements(By.TAG_NAME,"option")
 optiuni[4].click()
-time.sleep(4)
+
 chrome.get("http://www.seleniumframework.com/Practiceform/")
-time.sleep(2)
+
 chrome.find_element(By.LINK_TEXT,"Browser Commands").click()
-time.sleep(2)
+
 chrome.get("https://the-internet.herokuapp.com/")
-time.sleep(2)
+
 chrome.find_element(By.LINK_TEXT,"Challenging DOM").click()
-time.sleep(2)
+
 word = chrome.find_element(By.XPATH,"//table/tbody/tr[3]/td[4]").text
 chrome.back()
-time.sleep(2)
+
 chrome.find_element(By.LINK_TEXT,"Form Authentication").click()
-time.sleep(2)
+
 chrome.find_element(By.NAME,"username").send_keys(word)
-time.sleep(3)
+
 chrome.back()
-time.sleep(2)
+
 chrome.find_element(By.PARTIAL_LINK_TEXT,"Chall").click()
-time.sleep(2)
+
 chrome.back()
-time.sleep(2)
+
 chrome.find_element(By.PARTIAL_LINK_TEXT,"Geo").click()
-time.sleep(2)
+
 chrome.find_element(By.TAG_NAME,"button").click()
 chrome.back()
-time.sleep(2)
+
 chrome.find_element(By.PARTIAL_LINK_TEXT,"Form").click()
-time.sleep(2)
+
 chrome.find_element(By.NAME,"username").send_keys("maxim")
 chrome.find_element(By.NAME,"password").send_keys("razvan")
-time.sleep(2)
+
 chrome.find_element(By.CLASS_NAME,"radius").click()
 chrome.get("https://formy-project.herokuapp.com/")
-time.sleep(2)
+
 chrome.find_element(By.LINK_TEXT,"Key and Mouse Press").click()
-time.sleep(2)
+
 chrome.find_element(By.TAG_NAME,"input").send_keys("THE END!")
-time.sleep(3)
+
 
 
 

@@ -20,8 +20,6 @@ class Tests1(unittest.TestCase):
     PASSWORD = (By.ID, "password")
 
 
-
-
     def setUp(self) -> None:
         self.chrome = webdriver.Chrome()
         self.chrome.maximize_window()
